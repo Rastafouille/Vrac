@@ -1,0 +1,27 @@
+installation ROS
+http://www.instructables.com/id/Ros-Indigo-install-on-Ubuntu-1/
+
+j'ai enregistrer lenvironnement dans Bashrc, mais a chaque shell
+source ~/.bashrc
+
+
+After you put the who rplidar_ros into the catkin_ws and compile, you will need to do one command to source the folder
+
+"source ~/catkin_ws/devel/setup.bash" 
+
+
+
+Wiimote bluetooth
+http://www.raspberrypi-spy.co.uk/2013/02/nintendo-wii-remote-python-and-the-raspberry-pi/
+http://linux.arcticdesign.fr/commande-bluetooth-laide-du-pyhton/
+
+
+GIT HUB Rastafouille/Bibiche0
+
+dans le repertoire
+"git pull"
+faire les modifs
+"git add ." ou "git add fichier.extension"
+"git status" pour verifier
+"git commit -m https://github.com/Rastafouille/IBox.git"
+"git push"
