@@ -18,8 +18,6 @@ pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
 
 
 ##GIT HUB 
-Rastafouille/Bibiche0
-
 dans le repertoire
 `git pull`
 faire les modifs
