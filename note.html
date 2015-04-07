@@ -1037,4 +1037,30 @@ faire les modifs<br />
 <h2 id="arduino"><a name="user-content-arduino" href="#arduino" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Arduino</h2>
 <h3 id="probleme-sur-ubuntu"><a name="user-content-probleme-sur-ubuntu" href="#probleme-sur-ubuntu" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>probleme sur Ubuntu</h3>
 <p><code>processing.app.SerialException: Error opening serial port '/dev/ttyACM0'</code><br />
-go to File-&gt; Preferences and at the bottom of the popup, they give you a link for the &lsquo;preferences.txt&rsquo; file. Click that and it&rsquo;ll open the text. MAKE SURE AT THIS POINT TO CLOSE YOUR ARDUINO IDE. Make the change to &lsquo;9600&rsquo; Serial debug rate and save and exit. Open up your IDE and it should work now. </p></article></body></html>
+go to File-&gt; Preferences and at the bottom of the popup, they give you a link for the &lsquo;preferences.txt&rsquo; file. Click that and it&rsquo;ll open the text. MAKE SURE AT THIS POINT TO CLOSE YOUR ARDUINO IDE. Make the change to &lsquo;9600&rsquo; Serial debug rate and save and exit. Open up your IDE and it should work now. </p>
+<h2 id="sublime-text"><a name="user-content-sublime-text" href="#sublime-text" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Text</h2>
+<h3 id="installation"><a name="user-content-installation" href="#installation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>installation</h3>
+<pre><code>sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+</code></pre>
+<h3 id="package-control"><a name="user-content-package-control" href="#package-control" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Package Control</h3>
+<p>Dans View / Show Console :</p>
+<pre><code>import urllib.request,os,hashlib; 
+h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; 
+pf = 'Package Control.sublime-package'; 
+ipp = sublime.installed_packages_path(); 
+urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); 
+by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); 
+dh = hashlib.sha256(by).hexdigest(); 
+print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</code></pre>
+<h3 id="markdown"><a name="user-content-markdown" href="#markdown" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>MarkDown</h3>
+<p>Dans Tools / Command Palette :</p>
+<pre><code>install package
+</code></pre>
+<p>Puis installer :</p>
+<pre><code>Markdown Preview
+Markdown extended
+Monokai extended
+</code></pre></article></body></html>
