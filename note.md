@@ -60,3 +60,30 @@ Dans View / Show Console :
 	Markdown Preview
 	Markdown extended
 	Monokai extended
+
+## clavier numerique au demarrage
+créer un fichier (s'il n'existe pas) `/etc/lightdm/lightdm.conf.d/20-lubuntu.conf`
+et y mettre :
+		
+	[SeatDefaults]
+	greeter-setup-script=/usr/bin/numlockx on
+
+source : <http://doc.ubuntu-fr.org/numlockx>
+
+
+## Changer message d'accueil ubuntu
+Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
+
+Créer le fichier `/etc/motd.tail` et y inscrire le message souhaité.
+
+Exemple :
+
+		* Penser a regler la date.
+			 - Manuellement :
+					 sudo date MMJJHHmmAAAA
+			 - Ou plus precisement :
+					 sudo ntpdate 192.168.0.103
+
+Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-message-when-ssh-start>
+
+

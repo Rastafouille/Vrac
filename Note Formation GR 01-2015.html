@@ -1073,131 +1073,144 @@ git clone git@dev.humarobotics.com:phantomx_control
 git clone git@dev.humarobotics.com:phantomx_gazebo
 git clone git@dev.humarobotics.com:tourelle_description
 </code></pre>
-<h1 id="launchers"><a name="user-content-launchers" href="#launchers" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>LAUNCHERS</h1>
-<p>•             gazebo #pour lancer gazebo hors ROS<br />
-•             OU<br />
-•             roscore #dans un shell pour lancer gazebo ROS<br />
-•             rosrun gazebo_ros gazebo #dans un autre shell</p>
-<p>roslaunch darwin_gazebo darwin_gazebo.launch #pour ouvrir un modele</p>
-<p>rosrun turtlesim turtle_teleop_key /turtle1/cmd_vel:=/darwin/cmd_vel</p>
+<h2 id="launchers"><a name="user-content-launchers" href="#launchers" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>LAUNCHERS</h2>
+<p><code>gazebo</code> pour lancer gazebo hors ROS<br />
+OU<br />
+<code>roscore</code> dans un shell pour lancer gazebo ROS<br />
+<code>rosrun gazebo_ros gazebo</code> dans un autre shell</p>
+<p><code>roslaunch darwin_gazebo darwin_gazebo.launch</code> pour ouvrir un modele</p>
+<p><code>rosrun turtlesim turtle_teleop_key /turtle1/cmd_vel:=/darwin/cmd_vel</code></p>
 <h1 id="creation-modele"><a name="user-content-creation-modele" href="#creation-modele" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CREATION MODELE</h1>
-<p>•             #.sdf spécifique Gazebo et .urdf pour ROS mais Gazebo les gere aussi</p>
-<p>•             #créer dossier tourelle_description</p>
-<p>•             #importer le .stl dedans</p>
-<p>•             # modifier avec blender, echelle, position, orientation, origine</p>
-<p>•             # pour echelle et orientaiton, modifier directement les parametres dans la table de droite</p>
-<p>•             # modife origine :</p>
-<p>•                         - en bas, edit mode</p>
-<p>•                         - touche &ldquo;C&rdquo; pour selection</p>
-<p>•                         - &ldquo;shift + S&rdquo; puis &ldquo;cursor to selected&rdquo;, le curseur se met sur le barycentre des points selectionnés</p>
-<p>•                         - en bas, objet mode</p>
-<p>•                         - &ldquo;origin to 3D cursor&rdquo;</p>
-<p>•                         - mettre position a 0 0 0</p>
-<p>•             #modif du zoom, tip &ldquo;N&rdquo; et passer le start clip a 0.001 dans la table de droite</p>
-<p>•             # file/export/STL pour enregister</p>
-<p>•             # si probleme d&rsquo;affichage dans meshlab : &ldquo;Normalize Face Normals&rdquo;</p>
+<p><code>.sdf</code> spécifique Gazebo et <code>.urdf</code> pour ROS mais Gazebo les gere aussi<br />
+créer dossier <code>tourelle_description</code><br />
+importer le <code>.stl</code> dedans<br />
+modifier avec blender, echelle, position, orientation, origine<br />
+pour echelle et orientaiton, modifier directement les parametres dans la table de droite<br />
+modife origine :<br />
+- en bas, edit mode<br />
+- touche &ldquo;C&rdquo; pour selection<br />
+- &ldquo;shift + S&rdquo; puis &ldquo;cursor to selected&rdquo;, le curseur se met sur le barycentre des points selectionnés<br />
+- en bas, objet mode<br />
+- &ldquo;origin to 3D cursor&rdquo;<br />
+- mettre position a 0 0 0<br />
+modif du zoom, tip &ldquo;N&rdquo; et passer le start clip a 0.001 dans la table de droite<br />
+file/export/STL pour enregister<br />
+si probleme d&rsquo;affichage dans meshlab : &ldquo;Normalize Face Normals&rdquo;</p>
 <h1 id="modele-dans-gazebo"><a name="user-content-modele-dans-gazebo" href="#modele-dans-gazebo" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>MODELE DANS GAZEBO</h1>
-<h1 id="urdf"><a name="user-content-urdf" href="#urdf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>URDF</h1>
-<p>définition des links et joins dans le fichier URDF</p>
-<p>visualisation URDF dans RVIZ pour validation de l&rsquo;assemblage</p>
-<p>roslaunch urdf_tutorial display.launch model:=tourelle.urdf gui:=true</p>
-<h1 id="creer-tourelle_gazebolaunch-pour-charger-le-world-et-le-urdf-et-le-controleur-controllaunch"><a name="user-content-creer-tourelle_gazebolaunch-pour-charger-le-world-et-le-urdf-et-le-controleur-controllaunch" href="#creer-tourelle_gazebolaunch-pour-charger-le-world-et-le-urdf-et-le-controleur-controllaunch" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>creer tourelle_gazebo.launch pour charger le world et le .urdf et le controleur (control.launch) :</h1>
-<h1 id="exposer-le-model-dans-ros-creation-du-fichier-controllaunch-qui-appelle-un-autre-fichier-de-config-yaml"><a name="user-content-exposer-le-model-dans-ros-creation-du-fichier-controllaunch-qui-appelle-un-autre-fichier-de-config-yaml" href="#exposer-le-model-dans-ros-creation-du-fichier-controllaunch-qui-appelle-un-autre-fichier-de-config-yaml" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Exposer le model dans ROS : creation du fichier control.LAUNCH qui appelle un autre fichier de config .YAML</h1>
-<h1 id="ajouter-les-transmissions-dans-urdf"><a name="user-content-ajouter-les-transmissions-dans-urdf" href="#ajouter-les-transmissions-dans-urdf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ajouter les transmissions dans URDF</h1>
-<h1 id="creer-les-fichiers-de-controle"><a name="user-content-creer-les-fichiers-de-controle" href="#creer-les-fichiers-de-controle" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Créer les fichiers de contrôle:</h1>
-<pre><code>tourelle_control.yaml
-
-tourelle_control.launch
-</code></pre>
-<h1 id="phantom-tourelle-avec-xacro"><a name="user-content-phantom-tourelle-avec-xacro" href="#phantom-tourelle-avec-xacro" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PHANTOM + TOURELLE AVEC XACRO</h1>
-<p>•             # xacro pour la generation automatique urdf ou la defetion de macro</p>
-<p>•             il nous faut une xacro pour definir un macro de creation tourelle, une idem pour phantomX et une pour faire un urdf d&rsquo;assemblage.</p>
-<p>•             # On peut faire des xacro de creation urdf pour plusieurs types d&rsquo;assemblages, Tourelle+Baselink, PhantomX+Base link ou PhantomX+tourelle</p>
-<p>•             # pour lancer la generation de l&rsquo;urdf a partir du xacro : rosrun xacro xacro phantomx.xacro &gt;phantomx.urdf</p>
-<h1 id="ajout-capteurs"><a name="user-content-ajout-capteurs" href="#ajout-capteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>AJOUT CAPTEURS</h1>
-<pre><code>dans l'URDF tag gazebo, en 2 parties, Sensor et plugin
-</code></pre>
+<h2 id="urdf"><a name="user-content-urdf" href="#urdf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>URDF</h2>
+<p>définition des links et joins dans le fichier URDF<br />
+visualisation URDF dans RVIZ pour validation de l&rsquo;assemblage<br />
+<code>roslaunch urdf_tutorial display.launch model:=tourelle.urdf gui:=true</code></p>
+<p>creer tourelle_gazebo.launch pour charger le world et le .urdf et le controleur (control.launch) :     <br />
+Exposer le model dans ROS : creation du fichier control.LAUNCH qui appelle un autre fichier de config .YAML<br />
+Ajouter les transmissions dans URDF<br />
+Créer les fichiers de contrôle:<br />
+- <code>tourelle_control.yaml</code><br />
+- <code>tourelle_control.launch</code></p>
+<h2 id="phantom-tourelle-avec-xacro"><a name="user-content-phantom-tourelle-avec-xacro" href="#phantom-tourelle-avec-xacro" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PHANTOM + TOURELLE AVEC XACRO</h2>
+<p>xacro pour la generation automatique urdf ou la defetion de macro<br />
+il nous faut une xacro pour definir un macro de creation tourelle, une idem pour phantomX et une pour faire un urdf d&rsquo;assemblage.<br />
+On peut faire des xacro de creation urdf pour plusieurs types d&rsquo;assemblages, Tourelle+Baselink, PhantomX+Base link ou PhantomX+tourelle<br />
+pour lancer la generation de l&rsquo;urdf a partir du xacro : <code>rosrun xacro xacro phantomx.xacro &gt;phantomx.urdf</code></p>
+<h2 id="ajout-capteurs"><a name="user-content-ajout-capteurs" href="#ajout-capteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>AJOUT CAPTEURS</h2>
+<p>dans l&rsquo;URDF tag gazebo, en 2 parties, Sensor et plugin</p>
 <h1 id="rviz"><a name="user-content-rviz" href="#rviz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>RVIZ</h1>
-<pre><code>rosun rviz rviz une fois le ros_gazebo lancé
-
-charge le robot model avec add RobotModel
-
-add display et le topic qui va bien : Add Image
-</code></pre>
-<h1 id="tf"><a name="user-content-tf" href="#tf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TF</h1>
-<pre><code> permet de regarder chacun de repere, les matrices de transformation entres eux
-
- Add Tf
-
- rosrun tf tf-echo
-
- rosrun static_transform_publsher
-
-creer  fichier pdf des liens à partir du fichier urdf
-
-en se place dan sle dossier urdf
-
-urdf_to_graphiz phantomx_tourelle.irdf
-</code></pre>
+<p><code>rosun rviz rviz</code> une fois le ros_gazebo lancé<br />
+charge le robot model avec <code>add RobotModel</code><br />
+<code>add display</code> et le topic qui va bien : <code>Add Image</code></p>
+<h2 id="tf"><a name="user-content-tf" href="#tf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TF</h2>
+<p>permet de regarder chacun de repere, les matrices de transformation entres eux<br />
+- <code>Add Tf</code><br />
+- <code>rosrun tf tf-echo</code><br />
+- <code>rosrun static_transform_publsher</code><br />
+creer  fichier pdf des liens à partir du fichier urdf<br />
+on se place dans le dossier urdf<br />
+<code>urdf_to_graphiz phantomx_tourelle.irdf</code></p>
 <h1 id="some-commands"><a name="user-content-some-commands" href="#some-commands" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>SOME COMMANDS</h1>
-<h1 id="refresh-packages-in-ws-if-you-cannot-find-it"><a name="user-content-refresh-packages-in-ws-if-you-cannot-find-it" href="#refresh-packages-in-ws-if-you-cannot-find-it" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Refresh packages in ws (if you cannot find it)</h1>
-<p>rospack profile # from workspace root</p>
-<h1 id="visualize-urdf"><a name="user-content-visualize-urdf" href="#visualize-urdf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Visualize URDF</h1>
-<p>roslaunch urdf_tutorial display.launch model:=phantomx.urdf gui:=true</p>
-<h1 id="generate-urdf-from-xacro"><a name="user-content-generate-urdf-from-xacro" href="#generate-urdf-from-xacro" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Generate URDF from Xacro</h1>
-<p>rosrun xacro xacro phantomx.xacro &gt;phantomx.urdf</p>
-<h1 id="launch-darwin-gazebo"><a name="user-content-launch-darwin-gazebo" href="#launch-darwin-gazebo" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Launch Darwin Gazebo</h1>
-<p>roslaunch darwin_gazebo darwin_gazebo.launch</p>
-<h1 id="launch-phantomx-gazebo"><a name="user-content-launch-phantomx-gazebo" href="#launch-phantomx-gazebo" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Launch PhantomX Gazebo</h1>
-<p>roslaunch phantomx_gazebo phantomx_gazebo.launch</p>
-<h1 id="teleoperation-on-phantomx"><a name="user-content-teleoperation-on-phantomx" href="#teleoperation-on-phantomx" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Teleoperation on PhantomX</h1>
-<p>rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/phantomx/cmd_vel</p>
-<h1 id="teleoperation-on-darwin"><a name="user-content-teleoperation-on-darwin" href="#teleoperation-on-darwin" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Teleoperation on Darwin</h1>
-<p>rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/darwin/cmd_vel</p>
-<h1 id="pour-faire-un-pdf-graphique-avec-larbre"><a name="user-content-pour-faire-un-pdf-graphique-avec-larbre" href="#pour-faire-un-pdf-graphique-avec-larbre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>pour faire un pdf graphique avec l&rsquo;arbre</h1>
-<p>urdf_to_graphiz files.urdf</p>
-<p>PROBLEME AFFICHAGE RVIZ:</p>
-<pre><code>export LIBGL_ALWAYS_SOFTWARE=1 et le mettre dans le bashrc dans home/user
-</code></pre>
+<ul>
+<li>
+<p>Refresh packages in ws (if you cannot find it)<br />
+<code>rospack profile</code><br />
+    # from workspace root</p>
+</li>
+<li>
+<p>Visualize URDF<br />
+<code>roslaunch urdf_tutorial display.launch model:=phantomx.urdf gui:=true</code></p>
+</li>
+<li>
+<p>Generate URDF from Xacro<br />
+<code>rosrun xacro xacro phantomx.xacro &gt;phantomx.urdf</code></p>
+</li>
+<li>
+<p>Launch Darwin Gazebo<br />
+<code>roslaunch darwin_gazebo darwin_gazebo.launch</code></p>
+</li>
+<li>
+<p>Launch PhantomX Gazebo<br />
+<code>roslaunch phantomx_gazebo phantomx_gazebo.launch</code></p>
+</li>
+<li>
+<p>Teleoperation on PhantomX<br />
+<code>rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/phantomx/cmd_vel</code></p>
+</li>
+<li>
+<p>Teleoperation on Darwin<br />
+<code>rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/darwin/cmd_vel</code></p>
+</li>
+<li>
+<p>pour faire un pdf graphique avec l&rsquo;arbre<br />
+<code>urdf_to_graphiz files.urdf</code></p>
+</li>
+<li>
+<p>PROBLEME AFFICHAGE RVIZ:<br />
+<code>export LIBGL_ALWAYS_SOFTWARE=1 et le mettre dans le bashrc dans home/user</code></p>
+</li>
+</ul>
 <h1 id="config-scite"><a name="user-content-config-scite" href="#config-scite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CONFIG SCITE</h1>
-<h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a></h1>
-<h1 id="general-configuration"><a name="user-content-general-configuration" href="#general-configuration" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>GENERAL CONFIGURATION</h1>
-<h1 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a></h1>
-<p>tabsize=4</p>
-<p>indent.size=4</p>
-<p>use.tabs=0</p>
-<h1 id="open-files-in-the-last-directory"><a name="user-content-open-files-in-the-last-directory" href="#open-files-in-the-last-directory" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>open files in the last directory:</h1>
-<p>open.dialog.in.file.directory=1</p>
-<p>check.if.already.open=1</p>
-<h1 id="show-all-files"><a name="user-content-show-all-files" href="#show-all-files" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show all files:</h1>
-<p>open.filter=$(all.files)Source Files (cpp,c,h,mak)|<em>.cpp;</em>.c;<em>.h;</em>.mak;makefile|Web Files (htm, html, css, xml, shtml, js, pl, asp)|<em>.html;</em>.htm;<em>.css;</em>.shtml;<em>.js;</em>.pl;<em>.xml;</em>.asp|Text (txt, doc)|<em>.txt;</em>.doc|</p>
-<h1 id="show-status-bar"><a name="user-content-show-status-bar" href="#show-status-bar" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show status bar:</h1>
-<p>statusbar.visible=1</p>
-<p>title.full.path=1</p>
-<p>line.margin.visible=1</p>
-<h1 id="set-monospaced-font"><a name="user-content-set-monospaced-font" href="#set-monospaced-font" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Set monospaced font:</h1>
-<p>font.base=$(font.monospace)</p>
-<p>font.small=$(font.monospace)</p>
-<p>font.comment=$(font.monospace)</p>
-<p>font.text=$(font.monospace)</p>
-<p>font.text.comment=$(font.monospace)</p>
-<p>font.embedded.base=$(font.monospace)</p>
-<p>font.embedded.comment=$(font.monospace)</p>
-<p>font.vbs=$(font.monospace)</p>
-<h1 id="wrapping-of-long-lines"><a name="user-content-wrapping-of-long-lines" href="#wrapping-of-long-lines" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Wrapping of long lines</h1>
-<p>wrap=1</p>
-<h1 id="prompt-me-for-any-suspicous-action"><a name="user-content-prompt-me-for-any-suspicous-action" href="#prompt-me-for-any-suspicous-action" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>prompt me for any suspicous action</h1>
-<p>are.you.sure.on.reload=1</p>
-<p>load.on.activate=1</p>
-<p>highlight.current.word=1</p>
-<h1 id="highlightcurrentwordbystyle1"><a name="user-content-highlightcurrentwordbystyle1" href="#highlightcurrentwordbystyle1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>highlight.current.word.by.style=1</h1>
-<p>highlight.current.word.colour=#00D040</p>
-<p>selection.back=#F00000</p>
-<p>command.go.*.py=python -u &ldquo;$(FileNameExt)&rdquo; $(1)</p>
-<p>file.patterns.cpp=$(file.patterns.cpp);<em>.nxc;</em>.cpp;<em>.h;</em>.cc</p>
-<p>Probleme carte graphique ##########################################################</p>
-<p>sudo apt-get &ndash;purge remove nvidia-current</p>
-<p>sudo add-apt-repository ppa:ubuntu-x-swat/x-updates</p>
-<p>sudo add-apt-repository ppa:bumblebee/stable</p>
-<p>sudo apt-get update</p>
-<p>sudo apt-get install bumblebee bumblebee-nvidia linux-headers-generic</p></article></body></html>
+<h2 id="general-configuration"><a name="user-content-general-configuration" href="#general-configuration" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>GENERAL CONFIGURATION</h2>
+<pre><code>tabsize=4
+indent.size=4
+use.tabs=0
+
+# open files in the last directory:
+open.dialog.in.file.directory=1
+check.if.already.open=1
+
+# show all files:
+open.filter=$(all.files)Source Files (cpp,c,h,mak)|*.cpp;*.c;*.h;*.mak;makefile|Web Files (htm, html, css, xml, shtml, js, pl, asp)|*.html;*.htm;*.css;*.shtml;*.js;*.pl;*.xml;*.asp|Text (txt, doc)|*.txt;*.doc|
+
+# show status bar:
+statusbar.visible=1
+title.full.path=1
+line.margin.visible=1
+
+# Set monospaced font:
+font.base=$(font.monospace)
+font.small=$(font.monospace)
+font.comment=$(font.monospace)
+font.text=$(font.monospace)
+font.text.comment=$(font.monospace)
+font.embedded.base=$(font.monospace)
+font.embedded.comment=$(font.monospace)
+font.vbs=$(font.monospace)
+
+# Wrapping of long lines
+wrap=1
+
+# prompt me for any suspicous action
+are.you.sure.on.reload=1
+load.on.activate=1
+highlight.current.word=1
+#highlight.current.word.by.style=1
+highlight.current.word.colour=#00D040
+selection.back=#F00000
+command.go.*.py=python -u "$(FileNameExt)" $(1)
+file.patterns.cpp=$(file.patterns.cpp);*.nxc;*.cpp;*.h;*.cc
+</code></pre>
+<h1 id="probleme-carte-graphique"><a name="user-content-probleme-carte-graphique" href="#probleme-carte-graphique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Probleme carte graphique</h1>
+<pre><code>sudo apt-get --purge remove nvidia-current
+sudo add-apt-repository ppa:ubuntu-x-swat/x-updates
+sudo add-apt-repository ppa:bumblebee/stable
+sudo apt-get update
+sudo apt-get install bumblebee bumblebee-nvidia linux-headers-generic
+</code></pre></article></body></html>
