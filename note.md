@@ -69,7 +69,7 @@ et y mettre :
 	greeter-setup-script=/usr/bin/numlockx on
 
 source : <http://doc.ubuntu-fr.org/numlockx>
-
+il faut prélablement avoir installer numlockx en apt-get
 
 ## Changer message d'accueil ubuntu
 Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
