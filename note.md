@@ -86,4 +86,17 @@ Exemple :
 
 Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-message-when-ssh-start>
 
+## Config video DELL E6530
+uninstall bumblebee and nvidia drivers
+	
+	sudo apt-get purge bumblebee* nvidia*
+
+reinstall nvidia 331 
+(the only driver that apparently works correctly with my video card)
+	
+	sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
+
+restart
+	
+	sudo reboot
 
