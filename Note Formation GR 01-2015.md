@@ -28,7 +28,7 @@ Notes Formation Gazebo/Rviz sur Darwin et Hexapode PhantomX de Janvier 2015
 ## AJOUTER ROSBASH POUR LES RACCOURCIS
 
 `git clone git@dev.humarobotics.com:rosbash`
-modifier `~/.bashrc`
+modifier `/home/"utilisateur"/.bashrc`
 ajouter: `source ~/rosbash/rosbash.bash`
 redémarrer les shells
 `devel` pour initialiser
