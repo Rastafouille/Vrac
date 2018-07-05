@@ -1,27 +1,23 @@
 
-##installation opencv +python3 ubuntu18.04
+## installation opencv +python3 ubuntu18.04
 
 `sudo apt-get update`
+
 `sudo apt-get upgrade`
 
 `sudo apt install python3`
 
-`sudo apt-get install build-essential cmake unzip pkg-config`
-`sudo apt-get install libjpeg-dev libpng-dev libtiff-dev`
-`sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev`
-`sudo apt-get install libxvidcore-dev libx264-dev`
-`sudo apt-get install libgtk-3-dev`
-`sudo apt-get install libatlas-base-dev gfortran`
+`sudo apt-get install build-essential cmake unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libgtk-3-dev libatlas-base-dev gfortran`
+
 `sudo apt-get install python3-dev`
 
 `wget https://bootstrap.pypa.io/get-pip.py`
+
 `sudo python3 get-pip.py`
 
-`pip install spyder`
-`pip install opencv-python`
-`pip install opencv-contrib-python`
+`sudo pip install spyder opencv-python opencv-contrib-python`
 
-##installation ROS
+## installation ROS
 <http://www.instructables.com/id/Ros-Indigo-install-on-Ubuntu-1/>
 
 j'ai enregistrer lenvironnement dans Bashrc, mais a chaque shell
@@ -32,7 +28,7 @@ After you put the who rplidar_ros into the catkin_ws and compile, you will need 
 
 
 
-##Wiimote bluetooth
+## Wiimote bluetooth
 <http://www.raspberrypi-spy.co.uk/2013/02/nintendo-wii-remote-python-and-the-raspberry-pi/>
 <http://linux.arcticdesign.fr/commande-bluetooth-laide-du-pyhton/>
 
@@ -40,8 +36,7 @@ pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
 `sudo hciconfig hci0 reset`
 
 
-##GIT HUB 
-Rastafouille/Bibiche0
+## GIT HUB 
 
 dans le repertoire
 `git pull`
