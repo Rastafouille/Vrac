@@ -1,3 +1,26 @@
+
+##installation opencv +python3 ubuntu18.04
+
+`sudo apt-get update`
+`sudo apt-get upgrade`
+
+`sudo apt install python3`
+
+`sudo apt-get install build-essential cmake unzip pkg-config`
+`sudo apt-get install libjpeg-dev libpng-dev libtiff-dev`
+`sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev`
+`sudo apt-get install libxvidcore-dev libx264-dev`
+`sudo apt-get install libgtk-3-dev`
+`sudo apt-get install libatlas-base-dev gfortran`
+`sudo apt-get install python3-dev`
+
+`wget https://bootstrap.pypa.io/get-pip.py`
+`sudo python3 get-pip.py`
+
+`pip install spyder`
+`pip install opencv-python`
+`pip install opencv-contrib-python`
+
 ##installation ROS
 <http://www.instructables.com/id/Ros-Indigo-install-on-Ubuntu-1/>
 
