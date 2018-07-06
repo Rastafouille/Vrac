@@ -17,6 +17,8 @@
 
 `sudo pip install spyder opencv-python opencv-contrib-python`
 
+`python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose`
+
 ## installation ROS
 <http://www.instructables.com/id/Ros-Indigo-install-on-Ubuntu-1/>
 
