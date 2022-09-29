@@ -5,6 +5,8 @@ Sommaire
 - [Arduino](#arduino)
 - [Sublime text](#sublime-text)
 - [Markdown](#markdown)
+- [ROS](#ros)
+- [Linux](#linux)
 - [Divers](#divers)
 
 # RESEAU
@@ -96,6 +98,10 @@ faire les modifs
 `git commit -m "commentaire"`
 `git push`
 
+### Annuler les modifications non committées
+
+    $ git checkout -f
+
 # ARDUINO
 ### probleme sur Ubuntu
 `processing.app.SerialException: Error opening serial port '/dev/ttyACM0'`
@@ -127,6 +133,30 @@ Dans View / Show Console :
 	Markdown Preview
 	Markdown extended
 	Monokai extended
+# ROS
+La gestion des paquets se fait avec `rospack`. Pour mettre à jour l'index des paquets :
+
+    $ rospack profile
+
+Déplacement dans le répertoire d'un paquet :
+
+    $ roscd mon_paquet
+    
+    
+# Linix
+
+affichage des variables d'environnement
+
+	$ printenv | grep ROS
+	
+La liste des processus lancés par l'utilisateur dans le terminal :
+
+    $ ps -a
+
+Tuer un processus avec son `pid` :
+
+    $ kill -9 pid
+
 
 # DIVERS
 ### Clavier numerique au demarrage
