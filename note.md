@@ -143,7 +143,7 @@ Déplacement dans le répertoire d'un paquet :
     $ roscd mon_paquet
     
     
-# Linix
+# Linux
 
 affichage des variables d'environnement
 
