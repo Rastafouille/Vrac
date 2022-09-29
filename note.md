@@ -1,25 +1,93 @@
+Sommaire 
 
-## installation ROS
-<http://www.instructables.com/id/Ros-Indigo-install-on-Ubuntu-1/>
+- [Réseau](#reseau)
+- [Git](#git)
+- [Arduino](#arduino)
+- [Sublime text](#sublime-text)
+- [Markdown](#markdown)
+- [Divers](#divers)
 
-j'ai enregistrer lenvironnement dans Bashrc, mais a chaque shell
-`source ~/.bashrc`
+# RESEAU
+### SSH
+Connexion
+```bat
+ssh odroid@192.168.101.101
+```
+Transfert de fichier ssh
+```bat 
+scp /home/lstd/Bureau/en.mkv odroid@192.168.101.101:/home/odroid/Desktop/
+```
+Transfert de dossier ssh
+```bat
+scp -r /home/mickael/data/ odroid@192.168.101.101:/var/www/
+```
+### Traffic sur une connexion
+```bat
+	sudo vnstsat
+	sudo vnstat -i  wlan0 -l
+```
+### Synchronisation de l'heure avec Chrony entre 2 pc distants
 
-After you put the who rplidar_ros into the catkin_ws and compile, you will need to do one command to source the folder
-`source ~/catkin_ws/devel/setup.bash`
+```bat
+	sudo apt-get install chrony
+	sudo gedit /etc/chrony/chrony.conf
+```
+sur le master rajouter :
+```bash
+	# make it serve time even if it is not synced (as it can't reach out)
+	local stratum 8
+	# allow the IP of your peer to connect (subnet not specific IP)
+	allow 192.168.XX
+```
+sur le client rajouter :
+```bash
+	# set the servers IP here to sync to it
+	server <IP> iburst
+	# remove the default servers in the config
+```
+```bat
+	systemctl restart chrony
+```
+### Changer message d'accueil ubuntu
+Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
 
+Créer le fichier `/etc/motd.tail` et y inscrire le message souhaité.
 
+Exemple :
 
-## Wiimote bluetooth
-<http://www.raspberrypi-spy.co.uk/2013/02/nintendo-wii-remote-python-and-the-raspberry-pi/>
-<http://linux.arcticdesign.fr/commande-bluetooth-laide-du-pyhton/>
+		* blablabla, lancer motion pour le stream video
 
-pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
-`sudo hciconfig hci0 reset`
+Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-message-when-ssh-start>
 
+### Stream video avec Motion
 
-## GIT HUB 
-
+ <https://motion-project.github.io/motion_config.html>
+```bat
+	sudo apt-get install motion
+	mkdir ~/.motion
+	nano ~/.motion/motion.conf
+```
+mettre :
+```bash
+stream_port 8080
+stream_localhost off
+output_pictures off
+framerate 30
+width 640
+height 480
+stream_quality 100
+stream_maxrate 30
+ffmpeg_video_codec mpeg4
+auto_brightness off
+```
+lancer
+```bat
+	motion
+```
+reboot si necessaire et <http://192.168.101.101:8080/>
+possibilité de le mettre en service pour lencement au démarrage
+ 
+# GIT
 dans le repertoire
 `git pull`
 faire les modifs
@@ -28,13 +96,12 @@ faire les modifs
 `git commit -m "commentaire"`
 `git push`
 
-
-##Arduino
+# ARDUINO
 ### probleme sur Ubuntu
 `processing.app.SerialException: Error opening serial port '/dev/ttyACM0'`
 go to File-> Preferences and at the bottom of the popup, they give you a link for the 'preferences.txt' file. Click that and it'll open the text. MAKE SURE AT THIS POINT TO CLOSE YOUR ARDUINO IDE. Make the change to '9600' Serial debug rate and save and exit. Open up your IDE and it should work now. 
 
-## Sublime Text
+# SUBLIME-TEXT
 ### installation
 	sudo add-apt-repository ppa:webupd8team/sublime-text-3
 	sudo apt-get update
@@ -51,7 +118,7 @@ Dans View / Show Console :
 	dh = hashlib.sha256(by).hexdigest(); 
 	print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) 
 
-### MarkDown
+# MARKDOWN
  Dans Tools / Command Palette :
 
 	install package
@@ -61,7 +128,8 @@ Dans View / Show Console :
 	Markdown extended
 	Monokai extended
 
-## clavier numerique au demarrage
+# DIVERS
+### Clavier numerique au demarrage
 créer un fichier (s'il n'existe pas) `/etc/lightdm/lightdm.conf.d/20-lubuntu.conf`
 et y mettre :
 		
@@ -70,6 +138,14 @@ et y mettre :
 
 source : <http://doc.ubuntu-fr.org/numlockx>
 il faut prélablement avoir installer numlockx en apt-get
+
+### Wiimote bluetooth
+<http://www.raspberrypi-spy.co.uk/2013/02/nintendo-wii-remote-python-and-the-raspberry-pi/>
+<http://linux.arcticdesign.fr/commande-bluetooth-laide-du-pyhton/>
+
+pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
+```bat
+sudo hciconfig hci0 reset`
 
 ## Changer message d'accueil ubuntu
 Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
