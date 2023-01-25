@@ -71,14 +71,15 @@ Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-mes
 ```
 mettre :
 ```bash
+videodevice /dev/video7
 stream_port 8080
 stream_localhost off
 output_pictures off
 framerate 30
 width 640
 height 480
-stream_quality 100
-stream_maxrate 30
+stream_quality 50 #up to 100
+stream_maxrate 5 #up to 100
 ffmpeg_video_codec mpeg4
 auto_brightness off
 ```
@@ -87,7 +88,7 @@ lancer
 	motion
 ```
 reboot si necessaire et <http://192.168.101.101:8080/>
-possibilité de le mettre en service pour lencement au démarrage
+possibilité de le mettre en service pour lancement au démarrage
  
 # GIT
 dans le repertoire
