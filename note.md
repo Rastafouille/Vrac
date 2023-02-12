@@ -160,6 +160,29 @@ Tuer un processus avec son `pid` :
 
 
 # DIVERS
+
+### Screen
+
+donner un nom
+	
+	$ screen -S nom_du_screen
+
+donner une nom et lancer un commande
+	
+	$ screen -S <nom_du_screen> <commande_qui_lance_le_programme>
+
+lister les screens
+
+	$ screen -r
+
+pour fermer
+
+	$ exit
+
+ctrl+d fermer la fenetre au le screen si une seul fenetre
+
+ctrl+a puis c pour ouvrir d'autre terminaux dans le meme screen
+
 ### Clavier numerique au demarrage
 créer un fichier (s'il n'existe pas) `/etc/lightdm/lightdm.conf.d/20-lubuntu.conf`
 et y mettre :
