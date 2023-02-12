@@ -81,14 +81,19 @@ height 480
 stream_quality 50 #up to 100
 stream_maxrate 5 #up to 100
 ffmpeg_video_codec mpeg4
+ffmpeg_output_movies off
 auto_brightness off
+
 ```
 lancer
 ```bat
 	motion
 ```
-reboot si necessaire et <http://192.168.101.101:8080/>
+reboot si necessaire et <http://X.X.X.X:8080/>
 possibilité de le mettre en service pour lancement au démarrage
+ 
+Exemple python opencv import stream video
+<https://stackoverflow.com/questions/50185654/opencv-load-video-from-url>
  
 # GIT
 dans le repertoire
@@ -164,7 +169,7 @@ Tuer un processus avec son `pid` :
 ### Screen
 Donner un nom
 	
-	$ screen -S nom_du_screen
+	$ screen -S <nom_du_screen>
 
 Donner une nom et lancer une commande
 	
