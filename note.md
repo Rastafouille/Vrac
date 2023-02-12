@@ -64,11 +64,11 @@ Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-mes
 ### Stream video avec Motion
 
  <https://motion-project.github.io/motion_config.html>
-```bat
-	sudo apt-get install motion
-	mkdir ~/.motion
-	nano ~/.motion/motion.conf
-```
+
+	$ sudo apt-get install motion
+	$ mkdir ~/.motion
+	$ nano ~/.motion/motion.conf
+
 mettre :
 ```bash
 videodevice /dev/video7
@@ -83,12 +83,11 @@ stream_maxrate 5 #up to 100
 ffmpeg_video_codec mpeg4
 ffmpeg_output_movies off
 auto_brightness off
-
 ```
 lancer
-```bat
-	motion
-```
+
+	$ motion
+
 reboot si necessaire et <http://X.X.X.X:8080/>
 possibilité de le mettre en service pour lancement au démarrage
  
@@ -115,9 +114,9 @@ go to File-> Preferences and at the bottom of the popup, they give you a link fo
 
 # SUBLIME-TEXT
 ### installation
-	sudo add-apt-repository ppa:webupd8team/sublime-text-3
-	sudo apt-get update
-	sudo apt-get install sublime-text-installer
+	$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	$ sudo apt-get update
+	$ sudo apt-get install sublime-text-installer
 ### Package Control
 Dans View / Show Console :
 
