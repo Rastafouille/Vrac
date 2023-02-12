@@ -162,20 +162,23 @@ Tuer un processus avec son `pid` :
 # DIVERS
 
 ### Screen
-
-donner un nom
+Donner un nom
 	
 	$ screen -S nom_du_screen
 
-donner une nom et lancer un commande
+Donner une nom et lancer une commande
 	
 	$ screen -S <nom_du_screen> <commande_qui_lance_le_programme>
 
-lister les screens
+Lister les screens
 
 	$ screen -r
+	
+Lancer un screen
 
-pour fermer
+	$ screen -r <nom ou id>
+
+Pour fermer
 
 	$ exit
 
@@ -191,17 +194,18 @@ et y mettre :
 	greeter-setup-script=/usr/bin/numlockx on
 
 source : <http://doc.ubuntu-fr.org/numlockx>
-il faut prélablement avoir installer numlockx en apt-get
+il faut prélablement avoir installer numlockx avec apt
 
 ### Wiimote bluetooth
 <http://www.raspberrypi-spy.co.uk/2013/02/nintendo-wii-remote-python-and-the-raspberry-pi/>
 <http://linux.arcticdesign.fr/commande-bluetooth-laide-du-pyhton/>
 
 pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
-```bat
-sudo hciconfig hci0 reset`
+
+	$ sudo hciconfig hci0 reset`
 
 ## Changer message d'accueil ubuntu
+
 Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
 
 Créer le fichier `/etc/motd.tail` et y inscrire le message souhaité.
@@ -217,16 +221,17 @@ Exemple :
 Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-message-when-ssh-start>
 
 ## Config video DELL E6530
+
 uninstall bumblebee and nvidia drivers
 	
-	sudo apt-get purge bumblebee* nvidia*
+	$ sudo apt-get purge bumblebee* nvidia*
 
 reinstall nvidia 331 
 (the only driver that apparently works correctly with my video card)
 	
-	sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
+	$ sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
 
 restart
-	
-	sudo reboot
+
+	$ sudo reboot
 
