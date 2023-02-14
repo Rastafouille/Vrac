@@ -1,5 +1,6 @@
 Sommaire 
 
+- [Serveur](#serveur)
 - [Réseau](#reseau)
 - [Git](#git)
 - [Arduino](#arduino)
@@ -9,31 +10,71 @@ Sommaire
 - [Linux](#linux)
 - [Divers](#divers)
 
+
+# SERVEUR
+ 
+Autoriser port 80 sur serveur oracle
+<https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/apache-on-oracle-linux/01-summary.htm>
+
+	sudo apt-get install apache2
+
+Pare-feu 
+
+	sudo ufw app list
+	sudo ufw allow 'Apache'
+	sudo ufw enable
+	sudo ufw status
+
+Gestion processus apache
+
+	sudo systemctl stop apache2
+	sudo systemctl start apache2
+	sudo systemctl reload apache2
+	sudo systemctl enable apache2
+	
+	sudo touch /etc/apache2/sites-available/monsite.conf
+```bash	
+	<VirtualHost *:80>
+       ServerAdmin webmaster@localhost
+       ServerName http://www.monsite.com
+       DocumentRoot /var/www/html/monsite/
+       ErrorLog /var/log/apache2/monsite.log
+       CustomLog /var/log/apache2/access.log combined
+	</VirtualHost>
+```
+	cd /etc/apache2/sites-available/
+	sudo a2ensite monsite.conf
+	
+	sudo mkdir /var/www/monsite
+	sudo chown www-data:www-data /var/www/monsite
+	
+
+
 # RESEAU
 ### SSH
 Connexion
-```bat
-ssh odroid@192.168.101.101
-```
+
+	ssh odroid@192.168.101.101
+
 Transfert de fichier ssh
-```bat 
-scp /home/lstd/Bureau/en.mkv odroid@192.168.101.101:/home/odroid/Desktop/
-```
+
+	scp /home/lstd/Bureau/en.mkv odroid@192.168.101.101:/home/odroid/Desktop/
+
 Transfert de dossier ssh
-```bat
-scp -r /home/mickael/data/ odroid@192.168.101.101:/var/www/
-```
+
+	scp -r /home/mickael/data/ odroid@192.168.101.101:/var/www/
+
 ### Traffic sur une connexion
-```bat
+
 	sudo vnstsat
 	sudo vnstat -i  wlan0 -l
-```
+
 ### Synchronisation de l'heure avec Chrony entre 2 pc distants
 
-```bat
+
 	sudo apt-get install chrony
 	sudo gedit /etc/chrony/chrony.conf
-```
+
 sur le master rajouter :
 ```bash
 	# make it serve time even if it is not synced (as it can't reach out)
@@ -47,9 +88,9 @@ sur le client rajouter :
 	server <IP> iburst
 	# remove the default servers in the config
 ```
-```bat
+
 	systemctl restart chrony
-```
+
 ### Changer message d'accueil ubuntu
 Il s'agit du message informatif afficher au début d'une connexion SSh par exemple.
 
@@ -96,7 +137,7 @@ Exemple python opencv import stream video
  
 # GIT
 dans le repertoire
-`git pull`
+	git pull
 faire les modifs
 `git add .` ou `git add fichier.extension`
 `git status` pour verifier
@@ -109,14 +150,14 @@ faire les modifs
 
 # ARDUINO
 ### probleme sur Ubuntu
-`processing.app.SerialException: Error opening serial port '/dev/ttyACM0'`
+	processing.app.SerialException: Error opening serial port '/dev/ttyACM0'
 go to File-> Preferences and at the bottom of the popup, they give you a link for the 'preferences.txt' file. Click that and it'll open the text. MAKE SURE AT THIS POINT TO CLOSE YOUR ARDUINO IDE. Make the change to '9600' Serial debug rate and save and exit. Open up your IDE and it should work now. 
 
 # SUBLIME-TEXT
 ### installation
-	$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
-	$ sudo apt-get update
-	$ sudo apt-get install sublime-text-installer
+	sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	sudo apt-get update
+	sudo apt-get install sublime-text-installer
 ### Package Control
 Dans View / Show Console :
 
@@ -141,26 +182,26 @@ Dans View / Show Console :
 # ROS
 La gestion des paquets se fait avec `rospack`. Pour mettre à jour l'index des paquets :
 
-    $ rospack profile
+    rospack profile
 
 Déplacement dans le répertoire d'un paquet :
 
-    $ roscd mon_paquet
+    roscd mon_paquet
     
     
 # Linux
 
 affichage des variables d'environnement
 
-	$ printenv | grep ROS
+	printenv | grep ROS
 	
 La liste des processus lancés par l'utilisateur dans le terminal :
 
-    $ ps -a
+    ps -a
 
 Tuer un processus avec son `pid` :
 
-    $ kill -9 pid
+    kill -9 pid
 
 
 # DIVERS
@@ -168,23 +209,23 @@ Tuer un processus avec son `pid` :
 ### Screen
 Donner un nom
 	
-	$ screen -S <nom_du_screen>
+	screen -S <nom_du_screen>
 
 Donner une nom et lancer une commande
 	
-	$ screen -S <nom_du_screen> <commande_qui_lance_le_programme>
+	screen -S <nom_du_screen> <commande_qui_lance_le_programme>
 
 Lister les screens
 
-	$ screen -r
+	screen -r
 	
 Lancer un screen
 
-	$ screen -r <nom ou id>
+	screen -r <nom ou id>
 
 Pour fermer
 
-	$ exit
+	exit
 
 ctrl+d fermer la fenetre au le screen si une seul fenetre
 
@@ -206,7 +247,7 @@ il faut prélablement avoir installer numlockx avec apt
 
 pour activer le bluetooth sur le pc H@ri, a chaque connexion du dongle :
 
-	$ sudo hciconfig hci0 reset`
+	sudo hciconfig hci0 reset`
 
 ## Changer message d'accueil ubuntu
 
@@ -228,14 +269,14 @@ Source : <http://serverfault.com/questions/407033/how-can-i-edit-the-welcome-mes
 
 uninstall bumblebee and nvidia drivers
 	
-	$ sudo apt-get purge bumblebee* nvidia*
+	sudo apt-get purge bumblebee* nvidia*
 
 reinstall nvidia 331 
 (the only driver that apparently works correctly with my video card)
 	
-	$ sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
+	sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
 
 restart
 
-	$ sudo reboot
+	sudo reboot
 
