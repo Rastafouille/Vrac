@@ -13,7 +13,7 @@ Sommaire
 
 # SERVEUR
  
-Autoriser port 80 sur serveur oracle
+Autoriser port 80 sur serveur oracle : 
 <https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/apache-on-oracle-linux/01-summary.htm>
 
 	sudo apt-get install apache2
@@ -34,13 +34,13 @@ Gestion processus apache
 	
 	sudo touch /etc/apache2/sites-available/monsite.conf
 ```bash	
-	<VirtualHost *:80>
+<VirtualHost *:80>
        ServerAdmin webmaster@localhost
        ServerName http://www.monsite.com
        DocumentRoot /var/www/html/monsite/
        ErrorLog /var/log/apache2/monsite.log
        CustomLog /var/log/apache2/access.log combined
-	</VirtualHost>
+</VirtualHost>
 ```
 	cd /etc/apache2/sites-available/
 	sudo a2ensite monsite.conf
